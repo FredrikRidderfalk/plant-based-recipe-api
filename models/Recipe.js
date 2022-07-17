@@ -33,7 +33,9 @@ const RecipeSchema = mongoose.Schema({
   //   },
   // ],
   // instructions: [],
-  // notes: String,
+  notes: {
+    type: String,
+  },
 });
 
 module.exports = mongoose.model("Recipes", RecipeSchema);

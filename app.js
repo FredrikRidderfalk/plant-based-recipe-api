@@ -4,7 +4,7 @@ const mongoose = require("mongoose");
 const bodyParser = require("body-parser");
 require("dotenv/config");
 
-app.use(bodyParser.json()); // Also a middlewear
+app.use(bodyParser.json()); // A middlewear
 
 // Import routes
 const recipesRoute = require("./routes/recipes");
