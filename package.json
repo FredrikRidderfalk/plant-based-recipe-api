@@ -1,0 +1,23 @@
+{
+  "name": "plant-based-recipe-api",
+  "version": "1.0.0",
+  "description": "An API for accessing a plethora of plant-based recipes made flexible with its focus on ingredient substitution.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "plant-based",
+    "vegan",
+    "recipes",
+    "food",
+    "cooking",
+    "baking"
+  ],
+  "author": "Fredrik Ridderfalk",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1",
+    "nodemon": "^2.0.19"
+  }
+}
