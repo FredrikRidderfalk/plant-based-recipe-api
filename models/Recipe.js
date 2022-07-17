@@ -14,16 +14,20 @@ const RecipeSchema = mongoose.Schema({
     dishes: Boolean,
     cheap: Boolean,
   },
-  ingredients: {
-    name: String,
-    amount: Number,
-    unit: String,
-  },
-  flex: {
-    ingredient: String,
-    substitutes: String,
-  },
-  instructions: Array,
+  ingredients: [
+    {
+      name: String,
+      amount: Number,
+      unit: String,
+    },
+  ],
+  flex: [
+    {
+      ingredient: String,
+      substitutes: String,
+    },
+  ],
+  instructions: [],
   notes: String,
 });
 
