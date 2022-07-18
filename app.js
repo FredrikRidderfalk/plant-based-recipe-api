@@ -1,15 +1,17 @@
 const express = require("express"); // We import the package
 const app = express(); // We execute the package
 const mongoose = require("mongoose");
+const cors = require("cors");
 const bodyParser = require("body-parser");
 require("dotenv/config");
 
+// Middlewares - A middlewear is a function that executes when routes are being hit
 app.use(bodyParser.json()); // A middlewear
+app.use(cors());
 
 // Import routes
 const recipesRoute = require("./routes/recipes");
 
-// Middlewares - A middlewear is a function that executes when routes are being hit
 app.use("/recipes", recipesRoute);
 
 // Routes
