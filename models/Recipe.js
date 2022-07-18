@@ -9,30 +9,30 @@ const RecipeSchema = mongoose.Schema({
     type: String,
     required: true,
   },
-  // tags: {
-  //   quick: Boolean,
-  //   easy: Boolean,
-  //   temperature: {
-  //     value: String,
-  //     unit: String,
-  //   },
-  //   dishes: Boolean,
-  //   cheap: Boolean,
-  // },
-  // ingredients: [
-  //   {
-  //     name: String,
-  //     amount: Number,
-  //     unit: String,
-  //   },
-  // ],
-  // flex: [
-  //   {
-  //     ingredient: String,
-  //     substitutes: String,
-  //   },
-  // ],
-  // instructions: [],
+  tags: {
+    quick: Boolean,
+    easy: Boolean,
+    temperature: {
+      value: String,
+      unit: String,
+    },
+    onepot: Boolean,
+    cheap: Boolean,
+  },
+  ingredients: [
+    {
+      name: String,
+      amount: Number,
+      unit: String,
+    },
+  ],
+  flex: [
+    {
+      ingredient: String,
+      substitutes: String,
+    },
+  ],
+  instructions: Array,
   notes: {
     type: String,
   },
