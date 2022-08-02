@@ -1,19 +1,13 @@
 const express = require("express"); // We import the package
 const app = express(); // We execute the package
-const mongoose = require("mongoose");
-const cors = require("cors");
-const bodyParser = require("body-parser");
 const { MongoClient } = require("mongodb");
 require("dotenv/config");
-
-// v2
 
 const uri = process.env.MONGODB_URI;
 
 // define the first route
 app.get("/recipes", async (req, res) => {
   const client = new MongoClient(uri);
-  const databasesList = await client.db().admin().listDatabases();
 
   try {
     await client.connect();
@@ -34,7 +28,12 @@ app.get("/recipes", async (req, res) => {
 //How do we start listening to the server? Like this...
 app.listen(3000);
 
-// v1
+////////////////////////////////////////////////////////////////
+// v1.0
+
+// const mongoose = require("mongoose");
+// const cors = require("cors");
+// const bodyParser = require("body-parser");
 
 // Middlewares - A middlewear is a function that executes when routes are being hit
 // app.use(bodyParser.json()); // A middlewear
