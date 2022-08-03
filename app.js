@@ -27,6 +27,8 @@ app.get("/", async (req, res) => {
     console.log("allRecipes", allRecipes);
 
     return res.json(allRecipes);
+  } catch {
+    console.log("incatch1");
   } finally {
     // Ensures that the client will close when you finish/error
     await client.close();
