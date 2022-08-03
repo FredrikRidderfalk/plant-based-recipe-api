@@ -1,32 +1,35 @@
 const express = require("express"); // We import the package
 const app = express(); // We execute the package
-const { MongoClient } = require("mongodb");
+// const { MongoClient } = require("mongodb");
+const mongoose = require("mongoose");
+const cors = require("cors");
+const bodyParser = require("body-parser");
 require("dotenv/config");
 
-const uri = process.env.MONGODB_URI;
+// const uri = process.env.MONGODB_URI;
 
-// define the first route
-app.get("/recipes", async (req, res) => {
-  const client = new MongoClient(uri);
+// // define the first route
+// app.get("/recipes", async (req, res) => {
+//   const client = new MongoClient(uri);
 
-  try {
-    await client.connect();
+//   try {
+//     await client.connect();
 
-    const allRecipes = await client
-      .db("test")
-      .collection("recipes")
-      .find()
-      .toArray();
-    console.log("Connected to the server!");
-    console.log("allRecipes", allRecipes);
-  } finally {
-    // Ensures that the client will close when you finish/error
-    await client.close();
-  }
-});
+//     const allRecipes = await client
+//       .db("test")
+//       .collection("recipes")
+//       .find()
+//       .toArray();
+//     console.log("Connected to the server!");
+//     console.log("allRecipes", allRecipes);
+//   } finally {
+//     // Ensures that the client will close when you finish/error
+//     await client.close();
+//   }
+// });
 
-//How do we start listening to the server? Like this...
-app.listen(3000);
+// //How do we start listening to the server? Like this...
+// app.listen(3000);
 
 ////////////////////////////////////////////////////////////////
 // v1.0
@@ -56,3 +59,31 @@ app.listen(3000);
 
 //How do we start listening to the server? Like this...
 // app.listen(3000);
+
+////////////////////////////////////////////////////////////////
+// v1.1
+
+// Middlewares - A middlewear is a function that executes when routes are being hit
+app.use(bodyParser.json()); // A middlewear
+app.use(cors());
+
+// Routes
+const recipesRoute = require("./routes/recipes");
+
+app.use("/recipes", recipesRoute);
+
+// Connect to DB
+mongoose
+  .connect(process.env.DB_CONNECTION, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+  })
+  .then(() => {
+    console.log("Database connection successful.");
+  });
+
+// Port
+const PORT = process.env.PORT || 3000;
+
+// Starting a server
+app.listen(PORT, () => console.log(`The server is running at ${PORT}`));
