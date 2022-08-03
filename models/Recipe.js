@@ -5,9 +5,29 @@ const RecipeSchema = mongoose.Schema({
   description: String,
   _id: String,
   star: Boolean,
-  tags: {},
-  ingredients: {},
-  flex: {},
+  tags: {
+    quick: Boolean,
+    easy: Boolean,
+    temperature: {
+      value: String,
+      unit: String,
+    },
+    lesswash: Boolean,
+    cheap: Boolean,
+  },
+  ingredients: [
+    {
+      name: String,
+      amount: Number,
+      unit: String,
+    },
+  ],
+  flex: [
+    {
+      ingredient: String,
+      substitutes: String,
+    },
+  ],
   instructions: [String],
   notes: String,
 });
