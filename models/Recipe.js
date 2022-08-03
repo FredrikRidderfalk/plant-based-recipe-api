@@ -1,14 +1,9 @@
 const mongoose = require("mongoose");
 
 const RecipeSchema = mongoose.Schema({
-  name: {
-    type: String,
-    required: true,
-  },
-  description: {
-    type: String,
-    required: true,
-  },
+  name: String,
+  description: String,
+  star: Boolean,
   tags: {
     quick: Boolean,
     easy: Boolean,
@@ -16,7 +11,7 @@ const RecipeSchema = mongoose.Schema({
       value: String,
       unit: String,
     },
-    onepot: Boolean,
+    lesswash: Boolean,
     cheap: Boolean,
   },
   ingredients: [
@@ -33,9 +28,7 @@ const RecipeSchema = mongoose.Schema({
     },
   ],
   instructions: Array,
-  notes: {
-    type: String,
-  },
+  notes: String,
 });
 
 module.exports = mongoose.model("Recipes", RecipeSchema);
