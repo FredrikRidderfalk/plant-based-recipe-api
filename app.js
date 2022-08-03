@@ -70,7 +70,7 @@ app.use(cors());
 // Routes
 const recipesRoute = require("./routes/recipes");
 
-app.use("/recipes", recipesRoute);
+app.use("/recipe-api", recipesRoute);
 
 // Connect to DB
 mongoose
