@@ -12,7 +12,7 @@ const { MongoClient } = require("mongodb");
 const uri = process.env.DB_CONNECTION;
 
 // define the first route
-app.get("/recipe-api", async (req, res) => {
+app.get("/", async (req, res) => {
   const client = new MongoClient(uri);
 
   try {
