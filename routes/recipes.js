@@ -4,12 +4,13 @@ const Recipe = require("../models/Recipe");
 
 // GETS BACK ALL THE RECIPES
 router.get("/", async (req, res) => {
-  try {
-    const allRecipes = await Recipe.find(); // .find() will find all the recipes. Mongoose has a lot of built-in methods to apply here, like .limit(5).
-    res.json(allRecipes);
-  } catch (err) {
-    res.json({ message: err });
-  }
+  // try {
+  //   const allRecipes = await Recipe.find(); // .find() will find all the recipes. Mongoose has a lot of built-in methods to apply here, like .limit(5).
+  //   res.json(allRecipes);
+  // } catch (err) {
+  //   res.json({ message: err });
+  // }
+  console.log("this is the recipes get function");
 });
 
 //  GETS BACK A SPECIFIC POST
