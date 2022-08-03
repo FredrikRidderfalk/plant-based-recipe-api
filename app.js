@@ -1,8 +1,8 @@
 const express = require("express"); // We import the package
 const app = express(); // We execute the package
-const mongoose = require("mongoose");
-const cors = require("cors");
-const bodyParser = require("body-parser");
+// const mongoose = require("mongoose");
+// const cors = require("cors");
+// const bodyParser = require("body-parser");
 require("dotenv/config");
 
 ////////////////////////////////////////////////////////////////
@@ -24,11 +24,8 @@ app.get("/recipe-api/recipes", async (req, res) => {
       .find()
       .toArray();
     console.log("Connected to the server!");
-    console.log("allRecipes", allRecipes);
 
     return res.json(allRecipes);
-  } catch {
-    console.log("incatch1");
   } finally {
     // Ensures that the client will close when you finish/error
     await client.close();

@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-const RecipeSchema = mongoose.Schema({
+const RecipeSchema = new mongoose.Schema({
   name: String,
   star: Boolean,
   description: String,
@@ -31,4 +31,4 @@ const RecipeSchema = mongoose.Schema({
   notes: String,
 });
 
-module.exports = mongoose.model("Recipes", RecipeSchema);
+exports.Recipe = new mongoose.model("Recipe", RecipeSchema);
