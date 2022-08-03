@@ -13,14 +13,14 @@ router.get("/", async (req, res) => {
 });
 
 //  GETS BACK A SPECIFIC POST
-router.get("/:recipeId", async (req, res) => {
-  try {
-    const specificRecipe = await Recipe.findById(req.params.recipeId);
-    res.json(specificRecipe);
-  } catch (err) {
-    res.json({ message: err });
-  }
-});
+// router.get("/:recipeId", async (req, res) => {
+//   try {
+//     const specificRecipe = await Recipe.findById(req.params.recipeId);
+//     res.json(specificRecipe);
+//   } catch (err) {
+//     res.json({ message: err });
+//   }
+// });
 
 // POSTS A NEW RECIPE
 // router.post("/", async (req, res) => {
