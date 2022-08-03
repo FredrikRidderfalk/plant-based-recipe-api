@@ -35,8 +35,11 @@ app.get("/", async (req, res) => {
   }
 });
 
+// // Port
+const PORT = process.env.PORT || 3000;
+
 //How do we start listening to the server? Like this...
-app.listen(3000);
+app.listen(PORT, () => console.log(`The server is running at ${PORT}`));
 
 ////////////////////////////////////////////////////////////////
 // v1.0
